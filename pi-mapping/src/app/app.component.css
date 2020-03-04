@@ -15,23 +15,15 @@
 }
 
 #nav-btns{
-    /* margin-right: 0; */
     padding-top: 5rem;
     padding-bottom: 1rem;
-    padding-left: 50%;
     padding-right: 0%;
-    /* justify-content: right;
-    float: right;
-    text-align: right;
-    display: block; */
-
-    /* display: inline-block; */
+    margin-right: 10px;
+    margin-left: auto;
+ 
 }
 
 #nav-btns button{
-    margin-right: 5px;
-    /* justify-content: right;
-    position: absolute; */
-
+    margin-right: 10px;
     float: right;
 }

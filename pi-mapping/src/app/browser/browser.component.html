@@ -1,7 +1,13 @@
 <div class="container-fluid">
 
 	<div class="row search-box text-center">
-		<div class="col-12 input-group mb-3">
+			<div class="col-3 input-group mb-3">
+					<!-- <div (mouseover)="changeText=true" (mouseout)="changeText=false">
+							<span *ngIf="!changeText">Hide</span>
+							<span *ngIf="changeText">Show</span>
+						  </div> -->
+			</div>
+		<div class="col-9 input-group mb-3">
 				<input class="form-control" type="text" [(ngModel)]="search" (ngModelChange)="searchFor()" placeholder="Search Articles ..." aria-label="Recipient's username" aria-describedby="button-addon2">
 				<div class="input-group-append">
 				<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="clear()">Clear</button>
@@ -14,25 +20,38 @@
 
 			
 	<div class="dropdown">
-			<a class="btn btn-sm btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<a class="btn btn-sm btn-block btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					More Options
 				  </a>
 
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<a class="btn btn-sm btn-light" href="#"><p *ngFor="let code of codes">
-			<span *ngIf="getName(code)">{{getName(code)}}</span></p></a>
-					  </div>
-		<!-- <option *ngFor="let code of codes">
-			<strong *ngIf="getName(code)">{{getName(code)}}</strong> -->
-			<!-- <div *ngFor="let c of clusters[code]; let i=index">
-					<div *ngIf="counts[c] && getName(c)" class="checkbox" [ngClass]="{'hidden': i > 10 && hidden[code]}">
-						<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> <label [for]="c">{{getName(c)}} ({{counts[c]}})</label>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		<li *ngFor="let code of codes">
+
+		<div *ngIf="getName(code)">
+			<!-- <button  class="btn btn-sm btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{getName(code)}}</button> -->
+			
+
+
+		<!-- <select>
+
+			<option *ngFor="let c of clusters[code]">{{getName(c)}} ({{counts[c]}})</option>
+		</select> -->
+		<div *ngFor="let c of clusters[code]; let i=index">
+
+				<div *ngIf="i == 0">
+						<p class="show" (mouseover)="toggleHide(code)">{{hidden[code] === true ? getName(code)  : getName(code)}}</p>
 					</div>
-					<div *ngIf="i == 10">
-						<span class="show" (click)="toggleHide(code)">{{hidden[code] === true ? "> Show more" : "V Hide more"}}</span>
-					</div>
-			</div> -->
+				<div *ngIf="counts[c] && getName(c)" class="checkbox" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
+					<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> <label [for]="c">{{getName(c)}} ({{counts[c]}})</label>
+				</div>
+				
+		</div>
+	</div>
+
+		</li>
 	
+	</div>
+
 	</div>
 
 	

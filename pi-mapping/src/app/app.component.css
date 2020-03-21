@@ -27,3 +27,11 @@
     margin-right: 10px;
     float: right;
 }
+
+a{
+    /* color: silver; */
+}
+
+.nav-link img{
+    width: 18rem;
+}

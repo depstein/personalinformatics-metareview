@@ -8,3 +8,15 @@
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+
+
+  a{
+      /* color: steelblue; */
+
+  }
+
+  a:hover{
+    color: #808080;
+
+      text-decoration: none;
+  }

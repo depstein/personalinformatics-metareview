@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PapersService } from '../papers.service';
+import { RenameService } from '../rename.service';
 
 @Component({
   selector: 'app-paper',
@@ -13,12 +14,11 @@ export class PaperComponent implements OnInit {
 	link:string;
 	title:string;
 	doi:string;
-	keywords:string[];
 	tags:string[];
 	venue:string;
 	year:string;
 
-  constructor(private papers:PapersService) {
+  constructor(private papers:PapersService, private rename:RenameService) {
   }
 
   ngOnInit() {
@@ -29,13 +29,16 @@ export class PaperComponent implements OnInit {
       this.link = paper.link;
       this.title = paper.title;
       this.doi = paper.doi;
-      this.keywords = paper.keywords;
       this.tags = paper.tags;
       this.venue = paper.venue;
       this.year = paper.year;
     } else {
       this.display = false;
     }
+  }
+
+  getName(tag:string) {
+    return this.rename.getCodeName(tag);
   }
 
 }

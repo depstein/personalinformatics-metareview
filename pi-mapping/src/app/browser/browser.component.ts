@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 import clusterMap from "../../assets/cluster_map.json";
-import renameMap from "../../assets/rename_map.json";
+import clusterMap2019 from "../../assets/cluster_map_2019.json";
 import { PapersService } from '../papers.service';
 import { TagsService } from '../tags.service';
+import { RenameService } from '../rename.service';
 
 @Component({
   selector: 'app-browser',
@@ -17,14 +19,20 @@ export class BrowserComponent implements OnInit {
 	paperList:string[] = [];
 	search:string;
   hidden:{} = {};
+  yearRadio:boolean = true;
+  clusterMap:any;
 
-
-  constructor(private papers:PapersService, private tags:TagsService) { }
+  constructor(private papers:PapersService, private tags:TagsService, private rename:RenameService) {
+    this.clusterMap = clusterMap;
+    if(environment.showOldData) {
+      this.clusterMap = clusterMap2019;
+    }
+  }
 
   ngOnInit() {
-  	this.codes = clusterMap.map(c => c['title']);
+  	this.codes = this.clusterMap.map(c => c['title']);
   	this.codes.forEach(c => {
-      let cm = clusterMap.filter(m => c == m['title'])[0];
+      let cm = this.clusterMap.filter(m => c == m['title'])[0];
   		this.clusters[c] = cm['clusters'];
   		this.checked[c] = {};
       this.hidden[c] = true;
@@ -41,28 +49,16 @@ export class BrowserComponent implements OnInit {
   	this.paperList = this.papers.getAllPapers();
   }
 
-  getName(code:string) {
-    if(!(code in renameMap)) {
-      if(code.toLowerCase() != code) {
-        //There's probably something to preserve in the code's case
-        return code;
-      } else {
-        //Convert it to title case
-        return code.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
-      }
-    } else if(renameMap[code]) {
-      return renameMap[code];
-    } else {
-      return null;
-    }
-  }
-
   clear() {
     this.codes.forEach(c => {
       this.checked[c] = {};
     });
     this.search = null;
     this.check();
+  }
+
+  getName(code:string) {
+    return this.rename.getCodeName(code);
   }
 
   toggleHide(code:string) {

@@ -18,23 +18,8 @@
 	border: 1px;
 	text-align: center;
 	
-	/* background: #eeeeee; */
-	/* padding: 0.5em; */
-	/* color: gray; */
 }
 
-.search-box input[type=text]{
-	
-}
-
-.search-box input[type=text]:focus {
-	
-  }
-
-.search-box .btn{
-
-}
-
-#paper-list{
-
+.badge{
+	margin: 5px;
 }

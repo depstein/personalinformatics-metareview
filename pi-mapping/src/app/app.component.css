@@ -2,10 +2,12 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     font-size: 55px;
+    color: green;
 }
 
 .logo img{
     width: 100%;
+    color: green;
 }
 
 .navbar
@@ -24,8 +26,14 @@
 }
 
 #nav-btns button{
-    margin-right: 10px;
-    float: right;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    float: center;
+    background-color:#ebe8e8;
+
+    
+
 }
 
 a{

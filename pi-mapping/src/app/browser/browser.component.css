@@ -1,3 +1,9 @@
+.dropdown-menu{
+
+}
+#dropdownMenuLink:hover{
+	transition: 1s;
+}
 .checkbox {
 	margin: 0px;
 }
@@ -5,6 +11,7 @@
 .checkbox > label {
 	margin: 0px;
 	display: inline;
+
 }
 
 .hidden {
@@ -19,6 +26,7 @@
 	text-align: center;
 	
 }
+
 
 .badge{
 	margin: 5px;

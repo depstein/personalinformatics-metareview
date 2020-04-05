@@ -30,6 +30,7 @@
 
 				<div *ngIf="i == 0">
 						<p class="show" (mouseover)="toggleHide(code)">{{hidden[code] === true ? getName(code)  : getName(code)}}</p>
+
 					</div>
 				<div *ngIf="counts[c] && getName(c)" class="checkbox" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
 					<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> <label [for]="c">{{getName(c)}} ({{counts[c]}})</label>

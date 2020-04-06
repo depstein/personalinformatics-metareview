@@ -31,13 +31,9 @@
     margin-bottom: 60px;
     float: center;
     background-color:#ebe8e8;
-
+    min-width: 100px;
     
 
-}
-
-a{
-    /* color: darkblue; */
 }
 
 .nav-link img{

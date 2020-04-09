@@ -15,36 +15,22 @@
 	
 	<div class="col-3">
 
-			
-	<div class="dropdown">
-			<a class="btn btn-sm btn-block btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					More Options
-				  </a>
-
-	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-		<li *ngFor="let code of codes">
-
-		<div *ngIf="getName(code)">
+	<div class="sidebar">
+		
+		<div *ngFor="let code of codes">
 			
 		<div *ngFor="let c of clusters[code]; let i=index">
-
 				<div *ngIf="i == 0">
-						<p class="show" (mouseover)="toggleHide(code)">{{hidden[code] === true ? getName(code)  : getName(code)}}</p>
+					
+						<div class="show" (click)="toggleHide(code)"> <strong>{{hidden[code] === true ? getName(code)  : getName(code)}}  </strong></div>
 
 					</div>
-				<div *ngIf="counts[c] && getName(c)" class="checkbox" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
-					<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> <label [for]="c">{{getName(c)}} ({{counts[c]}})</label>
+				<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
+					<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> &nbsp;<label [for]="c">{{getName(c)}} ({{counts[c]}})</label>
 				</div>
-				
 			</div>
 		</div>
-
-		</li>
-	
 	</div>
-
-	</div>
-
 	
 	</div>
 	<div class="col-9">

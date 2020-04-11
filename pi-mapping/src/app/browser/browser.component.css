@@ -1,16 +1,16 @@
-.dropdown-menu{
 
+.sidebar{
+	margin: auto;
+	padding: 0px;
 }
-#dropdownMenuLink:hover{
-	transition: 1s;
-}
+
 .checkbox {
 	margin: 0px;
 }
 
 .checkbox > label {
 	margin: 0px;
-	display: inline;
+	display : inline;
 
 }
 
@@ -19,15 +19,27 @@
 }
 
 .show {
-	color: #808080;
-	font-family: Arial, Helvetica, sans-serif;
-	margin: auto;
-	border: 1px;
-	text-align: center;
-	
+	color: #333;
+	background-color:transparent;
+	font-family: inherit;
+	border: solid #ffffff .1px;
+	text-align: left;
+	padding: 2px;
+	margin-left: 3px;
+	padding-left: 5px;
+	cursor: pointer;	
 }
-
+.show:hover{
+	background-color: #ebe8e8;
+	color: #333;
+	transition: .5s;
+}
 
 .badge{
 	margin: 5px;
 }
+
+#checkbox-menu{
+	  margin-left: 35px;
+}
+

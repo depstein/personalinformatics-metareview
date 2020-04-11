@@ -1,20 +1,3 @@
-.logo{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    font-size: 55px;
-    color: green;
-}
-
-.logo img{
-    width: 100%;
-    color: green;
-}
-
-.navbar
-.navbar-light
-.bg-light{
-    background-color: white;
-}
 
 #nav-btns{
     padding-top: 5rem;
@@ -32,8 +15,6 @@
     float: center;
     background-color:#ebe8e8;
     min-width: 100px;
-    
-
 }
 
 .nav-link img{
@@ -48,7 +29,7 @@
     text-align: center;
   }
 
-  .top-bar{
+.top-bar{
    
     position: relative; 
     top: 0; 

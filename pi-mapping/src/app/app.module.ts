@@ -6,7 +6,7 @@ import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaperComponent } from './paper/paper.component';
 import { BrowserComponent } from './browser/browser.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { BrowserComponent } from './browser/browser.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

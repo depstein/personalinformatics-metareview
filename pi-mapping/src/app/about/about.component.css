@@ -1,0 +1,19 @@
+.heading {
+  align-content: center;
+  float: justify;;
+  color: steelblue;
+}
+
+#email {
+  color: steelblue;
+}
+
+hr {
+  width: 100%;
+  border-width: 3px;
+}
+
+.card {
+  display: inline-block;
+  margin-left: 10px;
+}

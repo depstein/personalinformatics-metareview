@@ -22,7 +22,8 @@
 	color: #333;
 	background-color:transparent;
 	font-family: inherit;
-	border: solid #ffffff .1px;
+	text-transform: capitalize;
+	border: none;
 	text-align: left;
 	padding: 2px;
 	margin-left: 3px;
@@ -32,11 +33,17 @@
 .show:hover{
 	background-color: #ebe8e8;
 	color: #333;
-	transition: .5s;
+	transition: .7s;
+	border-left: .5px solid;
+	padding-left: 10px;
 }
 
 .badge{
 	margin: 5px;
+	cursor: pointer;
+}
+.badge:hover{
+	
 }
 
 #checkbox-menu{

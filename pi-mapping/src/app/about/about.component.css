@@ -1,7 +1,16 @@
 .header{
-    font-size:50px;
+    font-size:40px;
     color: grey;
     text-align:center;
     font-weight:bold;
-    text-shadow: 1px 1px #7b8d99;    
+    text-shadow: 1px 1px #7b8d99;     
+   
 }
+
+.header2{
+    font-size:25px;
+    color: grey;
+    text-align:center;
+    font-weight:bold;
+    text-shadow: 1px 1px #7b8d99; 
+}  

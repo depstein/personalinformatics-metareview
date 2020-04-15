@@ -1,8 +1,30 @@
+
+.heading {
+  align-content: center;
+  float: justify;;
+  color: steelblue;
+}
+
+#email {
+  color: steelblue;
+}
+
+hr {
+  width: 100%;
+  border-width: 3px;
+}
+
+.card {
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .header{
     font-size:40px;
     color: grey;
     text-align:center;
     font-weight:bold;
+<<<<<<< HEAD
     text-shadow: 1px 1px #7b8d99;     
    
 }
@@ -14,3 +36,7 @@
     font-weight:bold;
     text-shadow: 1px 1px #7b8d99; 
 }  
+=======
+    text-shadow: 1px 1px #7b8d99;
+}
+>>>>>>> ce2ec9e6a658344cf1b308214b571504199d835b

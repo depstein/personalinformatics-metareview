@@ -6,23 +6,20 @@ import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaperComponent } from './paper/paper.component';
 import { BrowserComponent } from './browser/browser.component';
-// import { AddArticleComponent } from './add-article/add-article.component';
-// import { AboutComponent } from './about/about.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaperComponent,
     BrowserComponent,
-    // AddArticleComponent,
-    // AboutComponent
     routingComponents
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

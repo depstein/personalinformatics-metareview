@@ -1,7 +1,9 @@
 
 .sidebar{
-	margin: auto;
+	margin-left: 5px;
 	padding: 0px;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .checkbox {
@@ -20,33 +22,42 @@
 
 .show {
 	color: #333;
-	background-color:transparent;
+	background-color:#ebe8e8;
 	font-family: inherit;
 	text-transform: capitalize;
 	border: none;
 	text-align: left;
-	padding: 2px;
-	margin-left: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	padding-left: 5px;
-	cursor: pointer;	
+	cursor: pointer;
+	display: block;
+	border-radius: 5px;	
+
 }
 .show:hover{
 	background-color: #ebe8e8;
+	box-shadow: .5px .5px rgba(0, 0, 0, .2);
 	color: #333;
-	transition: .7s;
-	border-left: .5px solid;
-	padding-left: 10px;
+	transition: .3s;
 }
 
 .badge{
 	margin: 5px;
 	cursor: pointer;
-}
-.badge:hover{
-	
+
 }
 
 #checkbox-menu{
-	  margin-left: 35px;
+	  margin-left: 25px;
+	  padding-left: 5px;
+	  background-color: #aaaaaa;
+	  color: #ffffff;
 }
+
+#checkbox-menu:hover{
+	background-color: #888888;
+}
+
+
 

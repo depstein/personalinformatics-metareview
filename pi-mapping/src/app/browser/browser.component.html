@@ -15,13 +15,13 @@
 	<div class="col-3">
 	<div class="sidebar">
 		<div *ngFor="let code of codes">
-		<div *ngFor="let c of clusters[code]; let i=index">
+		<div *ngFor="let c of clusters[code]; let i=index" >
 				<div *ngIf="i == 0">
 					
-						<div class="show" (click)="toggleHide(code)"> 
-								<!-- <span>   {{hidden[code] === true ? "+"  : "-"}}  </span> -->
+						<span class="show" (click)="toggleHide(code)"> 
+								<!-- <span>   {{hidden[code] === true ? ""  : ""}}  </span> -->
 								<span> 	<strong>  {{hidden[code] === true ?  getName(code) : getName(code) }}  </strong></span>					
-						</div>
+						</span>
 					</div>
 
 				<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu" [ngClass]="{'hidden': i >= 0 && hidden[code]}">

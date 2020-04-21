@@ -19,7 +19,6 @@
 				<div *ngIf="i == 0">
 					
 						<span class="show" (click)="toggleHide(code)"> 
-								<!-- <span>   {{hidden[code] === true ? ""  : ""}}  </span> -->
 								<span> 	<strong>  {{hidden[code] === true ?  getName(code) : getName(code) }}  </strong></span>					
 						</span>
 					</div>
@@ -36,7 +35,7 @@
 		<strong id="paper-list">{{paperList.length}} matching papers</strong>
 		<div *ngFor="let code of codes">
 		<span *ngFor="let c of clusters[code]; let i=index">
-		<span *ngIf = 'counts[c] && getName(c)' class="checkbox" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
+		<span *ngIf = 'counts[c] && getName(c)' class="checkbox" [ngClass]="{'hidden': i > 20 && hidden[code]}">
 		<label [for]="c"><span *ngIf = 'checked[code][c]' class="badge badge-secondary"> X {{getName(c)}}</span>  </label></span>
 		</span>
 	</div>

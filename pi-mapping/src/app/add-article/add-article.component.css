@@ -1,13 +1,13 @@
 .indent{
     float: center;
     margin-left: 60px;
-    
+
 }
 
 .text-indent-inside-card{
     float: center;
     margin-left: 30px;
-    
+
 }
 
 .input-box-indent{
@@ -42,20 +42,20 @@
 }
 .add-one-indent{
     margin-left: 270px;
-    float: left;    
+    float: left;
 }
 
 .middle-indent{
     float: left;
     padding-left:15px;
-    
+
 }
 .remove-last-indent{
     float: left;
-    padding-left:15px;   
-    
+    padding-left:15px;
+
 }
 .adding-color{
     color: steelblue;
 }
-    
+

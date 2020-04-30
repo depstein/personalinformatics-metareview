@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import * as bibtex from 'bibtex-parse-js';
 
 @Component({
   selector: 'app-add-article',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddArticleComponent implements OnInit {
 
-  constructor() { }
+  // bibtex:string= '';
+
+  constructor() {
+    // var bibtexParse= require('bibtex-parse-js');
+    // var sample = bibtexParse.toJSON('@article{sample1,title={sample title}}');
+   }
 
   ngOnInit() {
   }
+
 
 }

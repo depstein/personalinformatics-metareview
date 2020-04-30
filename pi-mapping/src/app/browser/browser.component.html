@@ -1,47 +1,53 @@
 <div class="container-fluid">
 
 	<div class="row search-box text-center">
-			<div class="col-3 input-group mb-3">
+		<div class="col-3 input-group mb-3">
 
-			</div>
+		</div>
 		<div class="col-9 input-group mb-3">
-				<input class="form-control" type="text" [(ngModel)]="search" (ngModelChange)="searchFor()" placeholder="Search Articles ..." aria-label="Recipient's username" aria-describedby="button-addon2">
-				<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="clear()">Clear</button>
-				</div>
-		</div>
-	</div>
-<div class="row">
-	<div class="col-3">
-	<div class="sidebar">
-		<div *ngFor="let code of codes">
-		<div *ngFor="let c of clusters[code]; let i=index" >
-				<div *ngIf="i == 0">
-					
-						<span class="show" (click)="toggleHide(code)"> 
-								<!-- <span>   {{hidden[code] === true ? ""  : ""}}  </span> -->
-								<span> 	<strong>  {{hidden[code] === true ?  getName(code) : getName(code) }}  </strong></span>					
-						</span>
-					</div>
-
-				<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
-					<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c" [id]="c"> <label [for]="c">&nbsp;{{getName(c)}} ({{counts[c]}})</label>
-				</div>
-
+			<input class="form-control" type="text" [(ngModel)]="search" (ngModelChange)="searchFor()"
+				placeholder="Search Articles ..." aria-label="Recipient's username" aria-describedby="button-addon2">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" id="button-addon2"
+					(click)="clear()">Clear</button>
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-3">
+			<div class="sidebar">
+				<div *ngFor="let code of codes">
+					<div *ngFor="let c of clusters[code]; let i=index">
+						<div *ngIf="i == 0">
+
+							<span class="show" (click)="toggleHide(code)">
+								<span> <strong> {{hidden[code] === true ?  getName(code) : getName(code) }}
+									</strong></span>
+							</span>
+						</div>
+
+						<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu"
+							[ngClass]="{'hidden': i >= 0 && hidden[code]}">
+							<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c"
+								[id]="c"> <label [for]="c">&nbsp;{{getName(c)}} ({{counts[c]}})</label>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-9">
+			<strong id="paper-list">{{paperList.length}} matching papers</strong>
+			<div *ngFor="let code of codes">
+				<span *ngFor="let c of clusters[code]; let i=index">
+					<span *ngIf='counts[c] && getName(c)' class="checkbox"
+						[ngClass]="{'hidden': i > 100 && hidden[code]}">
+						<label [for]="c"><span *ngIf='checked[code][c]' class="badge badge-secondary"> X
+								{{getName(c)}}</span> </label></span>
+				</span>
+			</div>
+			<app-paper *ngFor="let paper of paperList" [id]=paper></app-paper>
+		</div>
 	</div>
-	<div class="col-9">
-		<strong id="paper-list">{{paperList.length}} matching papers</strong>
-		<div *ngFor="let code of codes">
-		<span *ngFor="let c of clusters[code]; let i=index">
-		<span *ngIf = 'counts[c] && getName(c)' class="checkbox" [ngClass]="{'hidden': i >= 0 && hidden[code]}">
-		<label [for]="c"><span *ngIf = 'checked[code][c]' class="badge badge-secondary"> X {{getName(c)}}</span>  </label></span>
-		</span>
-	</div>
-		<app-paper *ngFor="let paper of paperList" [id]=paper></app-paper>
-	</div>
-</div>
 
 </div>

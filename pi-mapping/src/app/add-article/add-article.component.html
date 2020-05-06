@@ -24,42 +24,54 @@
 
     <div class="card">
       <form class="container text-indent-inside-card">
+        <p class="thicker">Metadata regarding your papers</p>
         <div class="form-group">
-          <p for="email">1. Email address: </p>
-          <input type="email" class="inputbox" id="inputemail" placeholder="abc@example.com">
+          <p for="email" class="bold3">1. Email address: </p>
+          <input type="email" class="inputbox" id="inputemail">
         </div>
 
         <div class="form-group">
-          <p for="exampleFormControlFile1">2. Upload a bibtex file: </p>
+          <p for="exampleFormControlFile1" class="bold3">2. Upload a bibtex file: </p>
           <input type="file" class="uploadfile" accept="bib" id="upload">
         </div>
         <p>or</p>
         <div class="form-group">
-          <p>2. Enter data manually</p>
+          <p class="bold3">2. Enter data manually</p>
         </div>
         <div class="form-group">
-          <p for="text">Title: </p>
-          <input type="text" class="inputbox" id="inputtitle" placeholder="Enter title">
+          <p for="text" class="text-color">Title </p>
+          <input type="text" class="inputbox inputbox-large" id="inputtitle">
         </div>
         <div class="form-group">
-          <p for="text">Name: </p>
-          <input type="text" class="inputbox" id="inputname" placeholder="Enter name">
+          <p for="text" class="text-color">Authors </p>
+          <p >Enter the author names and affiliations below, in the order they appear in the paper  </p>
+          <p >First, Middle, Last</p>
+          <div class="columns">
+            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
+            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
+            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
+          </div> 
+          <div class="adding-authors">
+            <a href="">add one </a>
+            <a href="">|</a>
+            <a href="">remove last</a>
+          </div>       
         </div>
         <div class="form-group">
-          <p for="text">Year published: </p>
-          <input type="text" class="inputbox" id="inputyear" placeholder="Enter the year of publishing">
+          <p for="text" class="text-color">Year published: </p>
+          <input type="text" class="inputbox" id="inputyear">
         </div>
         <div class="form-group">
-          <p for="text">Publication venue: </p>
-          <input type="text" class="inputbox" id="inputvenue" placeholder="Enter the venue">
+          <p for="text" class="text-color">Publication Venue: </p>
+          <input type="text" class="inputbox inputbox-large " id="inputvenue">
         </div>
         <div class="form-group">
-          <p for="text">Link of the paper: </p>
-          <input type="text" class="inputbox" id="inputlink" placeholder="Enter the link">
+          <p for="text" class="text-color">Link to the Paper: </p>
+          <input type="text" class="inputbox inputbox-large" id="inputlink">
         </div>
         <div class="form-group">
-          <p for="text">3. Fill out the survey</p>
-          <a class="input-box-indent" href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform"> Paper Browser Tool Metadata Survey</a>
+          <p for="text" class="bold3">3. Fill out the survey to enter metadata about your paper</p>
+          <a class="input-box-indent text-color" href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform" target="_blank"> Paper Browser Tool Metadata Survey</a>
         </div>
 
         <div class="form-check"> <!-- mb-2 mr-sm-2 -->
@@ -68,7 +80,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          <button type="submit" class="btn btn-primary mb-2 submit-button">Submit</button>
         </div>
 
       </form>

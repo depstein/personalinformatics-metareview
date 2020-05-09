@@ -4,21 +4,9 @@
   src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
 </script>
 
+
 <body>
 
-
-
-  <!-- <p>Form value: {{ f.value | json }}</p>
-  <p>Form valid: {{ f.valid }}</p>
-  {{input.email}}
-  {{isValid}}
-
-  <input [(ngModel)]="name">
-  {{name}} -->
-  <!-- {{emails}}
-  {{file}} -->
-  <!-- <input (keyup)="onKey($event)"> -->
-  <!-- <p>{{email}}</p> -->
   <!-- @inproceedings{10.1145/2750858.2804250,
       author = {Epstein, Daniel A. and Ping, An and Fogarty, James and Munson, Sean A.},
       title = {A Lived Informatics Model of Personal Informatics},
@@ -40,51 +28,51 @@
 
     <div class="card">
 
-      <form class="container text-indent-inside-card" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <form class="container text-indent-inside-card" (submit)="processForm()">
 
         <h4><b>Metadata regarding your paper</b></h4>
 
         <p><b>1.</b> &nbsp; Email address</p>
-        <input type="text" name="email" ngModel required #email="ngModel" (keyup)="onKey($event)"
-          class="input-box-indent" size="50"><br><br>
+        <input type="text" name="email" [(ngModel)]="form.email" class="input-box-indent" size="50"><br><br>
 
 
         <p><b>2.</b> &nbsp; Upload your Bibtex file <br> </p>
-        <input type="file" name="file" ngModel required #file="ngModel" accept="bib" (keyup)="onKey($event)"
-          class="input-box-indent" /><br><br>
+        <input type='file' name="bibFile" accept='Bibtex' multiple (change)='openFile($event)' class="input-box-indent"
+          size="50">
 
+        <br><br>
 
         &nbsp; &nbsp; &nbsp; or <br> <br>
 
         <p class="adding-color">&nbsp; &nbsp; &nbsp; Title</p>
-        <input name="title" ngModel required #title="ngModel" class="input-box-indent" size="50" /><br><br>
+        <input name="title" [(ngModel)]="form.title" class="input-box-indent" size="50" /><br><br>
         &nbsp; &nbsp; &nbsp; Enter the author names and affiliations below, in the order they appear in the paper
         <br>
         <p class="adding-color">&nbsp; &nbsp; &nbsp; First, Middle, Last</p>
-        <input name="first" ngModel required #first="ngModel" class="input-box-indent" size="50" /><br><br>
-        <input name="middle" ngModel required #middle="ngModel" class="input-box-indent" size="50" /><br><br>
-        <input name="last" ngModel required #last="ngModel" class="input-box-indent" size="50" /><br><br>
+        <input name="author.name1" [(ngModel)]="form.author.name1" class="input-box-indent" size="50" /><br><br>
+        <input name="author.name2" [(ngModel)]="form.author.name2" class="input-box-indent" size="50" /><br><br>
+        <input name="author.name3" [(ngModel)]="form.author.name3" class="input-box-indent" size="50" /><br><br>
         <h6 class="add-one-indent"> add one </h6>
         <h6 class="middle-indent">|</h6>
         <h6 class="remove-last-indent">remove last</h6><br><br>
 
         <p class="adding-color">&nbsp; &nbsp; &nbsp; Year Published</p>
-        <input name="year" ngModel required #year="ngModel" class="input-box-indent" size="50" /><br><br>
+        <input name="year" [(ngModel)]="form.year" class="input-box-indent" size="50" /><br><br>
 
         <p class="adding-color"> &nbsp; &nbsp; &nbsp;Publication Venue</p>
-        <input name="venue" ngModel required #venue="ngModel" class="input-box-indent" size="50" /> <br><br>
+        <input name="venue" [(ngModel)]="form.venue" class="input-box-indent" size="50" /> <br><br>
 
         <p class="adding-color">&nbsp; &nbsp; &nbsp; Link to the paper</p>
-        <input name="link" ngModel required #link="ngModel" class="input-box-indent" size="50" /> <br><br>
+        <input name="link" [(ngModel)]="form.link" class="input-box-indent" size="50" /> <br><br>
 
         <p><b>3.</b> &nbsp; Fill out the survey to enter metadata about your paper</p>
         <a class="input-box-indent"
           href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform">
           Paper Browser Tool Metadata Survey</a> &nbsp; &nbsp; &nbsp;
-        <input type="checkbox" /><br><br><br>
+        <input name="survey" type="checkbox" [(ngModel)]="form.survey" /><br><br><br>
 
-        <input type="submit" class="submit-button" /><br><br><br>
-        <!-- <button type="button" (click)="onResetForm()">Reset</button> -->
+        <button type="submit" class="submit-button">Submit</button>
+        <button type="button" class="reset-button" (click)="onResetForm()">Clear</button><br><br>
       </form>
 
     </div>

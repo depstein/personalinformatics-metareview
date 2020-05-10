@@ -1,0 +1,37 @@
+
+.heading {
+  align-content: center;
+  float: justify;;
+  color: steelblue;
+}
+
+#email {
+  color: steelblue;
+}
+
+hr {
+  width: 100%;
+  border-width: 3px;
+}
+
+.card {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.header{
+    font-size:40px;
+    color: grey;
+    text-align:center;
+    font-weight:bold;
+    text-shadow: 1px 1px #7b8d99;     
+   
+}
+
+.header2{
+    font-size:25px;
+    color: grey;
+    text-align:center;
+    font-weight:bold;
+    text-shadow: 1px 1px #7b8d99; 
+}  

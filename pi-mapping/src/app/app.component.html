@@ -1,9 +1,24 @@
-<div class="container">
-	<div style="text-align:center">
-	  <h1>
-	    Paper browser
-	  </h1>
-	</div>
+<div class="container-fluid  top-bar">
+	<div style="text-align:left">
+		<nav class="nav">
+			<a class="nav-link" href="#">  
+				
+			<img src="../assets/images/LogoBlue.png"/>
+			</a>
+			<div id="nav-btns">
 
+			<button routerLink="/" class="btn btn-sm btn-light" type="button">Home</button>
+			<button routerLink="/about" class="btn btn-sm btn-light" type="button">About Us</button>
+			<button routerLink="/article" class="btn btn-sm btn-light" type="button">Add Articles</button>
+
+		</div>
+	  </nav>
+	
+	</div>
+	
 	<router-outlet></router-outlet>
+	
 </div>
+<footer class="footer">
+		Copyright &copy; 2020
+	</footer>

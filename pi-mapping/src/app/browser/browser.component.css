@@ -1,10 +1,25 @@
+
+.sidebar{
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 1%;
+	font-size: 14px; 
+	line-height: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 200px; 
+	height: 90vh; 
+	overflow-y: scroll; 
+	position: fixed;
+}
+
 .checkbox {
 	margin: 0px;
 }
 
 .checkbox > label {
 	margin: 0px;
-	display: inline;
+	display : inline;
+
 }
 
 .hidden {
@@ -12,5 +27,85 @@
 }
 
 .show {
-	color: #007bff;
+	color: #333;
+	background-color:#ebe8e8;
+	font-family: inherit;
+	text-transform: capitalize;
+	border: none;
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+	display: block;
+	border-radius: 5px;	
+}
+
+.show:hover{
+	box-shadow: .5px .5px 5px rgba(0, 0, 0, .5);
+	color: #333;
+	transition: .5s;
+	border-radius: 5px;
+}
+
+.badge{
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+#checkbox-menu{
+	  margin-left: 25px;
+	  padding-left: 5px;
+	  background-color: #aaaaaa;
+	  color: #ffffff;
+	  opacity: .8;
+	  line-height: 1.5em;
+}
+
+#checkbox-menu:hover{
+	opacity: 1;
+}
+
+#paper-list{
+	margin-left: 30px;
+}
+
+@media screen and (min-width: 480px) {
+	.sidebar {
+	width: 25%;
+	padding: 1%;
+	margin: 0;
+	
+	}
+ }
+
+ #sticky-search{
+	position: sticky;
+    width: 100%;
+	top: 5px;
+	z-index: 1;
+ }
+
+ #sticky-search input{
+	 margin-left: 30px;
+ }
+
+ #sticky-sidebar{
+	 position: sticky;
+	 width: 100%;
+	 top: 0;
+	 z-index: 1;
+ }
+
+ #button-addon2{
+	 background-color: #ebe8e8;
+ }
+
+ #button-addon2:hover{
+	color: #333333;
+}
+
+.search-tags{
+	margin-left: 30px;
 }

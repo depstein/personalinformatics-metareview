@@ -1,11 +1,14 @@
-<div class="container-fluid  top-bar">
-	<div style="text-align:left">
-		<nav class="nav">
-			<a class="nav-link" href="#">  
-				
-			<img src="../assets/images/LogoBlue.png"/>
-			</a>
-			<div id="nav-btns">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="container-fluid">
+		<nav class="nav row">
+			<div class="col-6">
+				<a class="nav-link" href="#">  
+					
+				<img src="../assets/images/LogoBlue.png"/>
+				</a>
+			</div>
+			<div id="nav-btns" class="col-6">
 
 			<button routerLink="/" class="btn btn-sm btn-light" type="button">Home</button>
 			<button routerLink="/about" class="btn btn-sm btn-light" type="button">About Us</button>
@@ -14,11 +17,11 @@
 		</div>
 	  </nav>
 	
-	</div>
-	
 	<router-outlet></router-outlet>
-	
+	<button class="btn btn-sm btn-light" *ngIf="showScroll" (click)="goToTop()" id="myBtn" title="Go to top">
+		<span class="material-icons">keyboard_arrow_up</span>
+	</button>
 </div>
 <footer class="footer">
-		Copyright &copy; 2020
-	</footer>
+	Copyright &copy; 2020
+</footer>

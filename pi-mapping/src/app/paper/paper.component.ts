@@ -26,8 +26,14 @@ export class PaperComponent implements OnInit {
     if(paper) {
       this.display = true;
       this.author = paper.author;
+      if(this.author.endsWith('.')) {
+        this.author = this.author.slice(0, -1);
+      }
       this.link = paper.link;
       this.title = paper.title;
+      if(this.title.endsWith('.')) {
+        this.title = this.title.slice(0, -1);
+      }
       this.doi = paper.doi;
       this.tags = paper.tags;
       this.venue = paper.venue;

@@ -25,10 +25,14 @@ export class AddArticleComponent implements OnInit {
   private citationKey: string;
   private entryType: string;
 
-  private form: {
+  form: {
     email: string;
     title: string;
-    author: {};
+    author: {
+      name1:"",
+      name2:"",
+      name3:""
+    };
     year: string;
     venue: string;
     link: string;

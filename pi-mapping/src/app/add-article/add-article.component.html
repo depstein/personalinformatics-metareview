@@ -1,11 +1,6 @@
-<!-- <html> -->
-
-<!-- <script>
-  src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
-</script> -->
 
 
-<!-- <body> -->
+
 
 <!-- @inproceedings{10.1145/2750858.2804250,
       author = {Epstein, Daniel A. and Ping, An and Fogarty, James and Munson, Sean A.},
@@ -23,63 +18,11 @@
       location = {Osaka, Japan},
       series = {UbiComp ’15}
       } -->
-
-<div ng-app="" class="indent">
-
-  <div class="card">
-
-    <form class="container text-indent-inside-card" (submit)="processForm()">
-
-      <h4><b>Metadata regarding your paper</b></h4>
-
-      <p><b>1.</b> &nbsp; Email address</p>
-      <input type="text" name="email" [(ngModel)]="form.email" class="input-box-indent" size="50"><br><br>
+<html>
+  <body>
 
 
-      <p><b>2.</b> &nbsp; Upload your Bibtex file <br> </p>
-      <input type='file' name="bibFile" accept='Bibtex' multiple (change)='openFile($event)' class="input-box-indent"
-        size="50">
-
-      <br><br>
-
-      &nbsp; &nbsp; &nbsp; or <br> <br>
-
-      <p class="adding-color">&nbsp; &nbsp; &nbsp; Title</p>
-      <input name="title" [(ngModel)]="form.title" class="input-box-indent" size="50" /><br><br>
-      &nbsp; &nbsp; &nbsp; Enter the author names and affiliations below, in the order they appear in the paper
-      <br>
-      <p class="adding-color">&nbsp; &nbsp; &nbsp; First, Middle, Last</p>
-      <input name="author.name1" [(ngModel)]="form.author.name1" class="input-box-indent" size="50" /><br><br>
-      <input name="author.name2" [(ngModel)]="form.author.name2" class="input-box-indent" size="50" /><br><br>
-      <input name="author.name3" [(ngModel)]="form.author.name3" class="input-box-indent" size="50" /><br><br>
-      <h6 class="add-one-indent"> add one </h6>
-      <h6 class="middle-indent">|</h6>
-      <h6 class="remove-last-indent">remove last</h6><br><br>
-
-      <p class="adding-color">&nbsp; &nbsp; &nbsp; Year Published</p>
-      <input name="year" [(ngModel)]="form.year" class="input-box-indent" size="50" /><br><br>
-
-      <p class="adding-color"> &nbsp; &nbsp; &nbsp;Publication Venue</p>
-      <input name="venue" [(ngModel)]="form.venue" class="input-box-indent" size="50" /> <br><br>
-
-      <p class="adding-color">&nbsp; &nbsp; &nbsp; Link to the paper</p>
-      <input name="link" [(ngModel)]="form.link" class="input-box-indent" size="50" /> <br><br>
-
-      <p><b>3.</b> &nbsp; Fill out the survey to enter metadata about your paper</p>
-      <a class="input-box-indent"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform">
-        Paper Browser Tool Metadata Survey</a> &nbsp; &nbsp; &nbsp;
-      <input name="survey" type="checkbox" [(ngModel)]="form.survey" /><br><br><br>
-
-      <button type="submit" class="submit-button">Submit</button>
-      <button type="button" class="reset-button" (click)="onResetForm()">Clear</button><br><br>
-    </form>
-
-  </div>
-
-</div>
-
-<!-- <div class="card">
+    <div class="card">
       <form class="container text-indent-inside-card">
         <p class="thicker">Metadata regarding your papers</p>
         <div class="form-group">
@@ -133,65 +76,18 @@
         </div>
 
         <div class="form-check"> <!-- mb-2 mr-sm-2 -->
-<!-- <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
           <p for="inlineFormCheck">Completed</p>
         </div>
 
         <div class="form-group">
           <button type="submit" class="btn btn-primary mb-2 submit-button">Submit</button>
-        </div>-->
-
-
-
-
-<!-- <form class="container text-indent-inside-card">
-
-        <h4><b>Metadata regarding your paper</b></h4>
-
-        <p><b>1.</b> &nbsp; Email address</p>
-        <input type="text" ng-model="email" class="input-box-indent" size="50"><br><br>
-
-        <p><b>2.</b> &nbsp; Upload your Bibtex file <br> </p>
-        <input type="file" accept="jpg" class="input-box-indent"/><br><br>
-
-
-        &nbsp; &nbsp; &nbsp; or <br> <br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Title</p>
-        <input  class="input-box-indent" size="50"/><br><br>
-        &nbsp; &nbsp; &nbsp; Enter the author names and affiliations below, in the order they appear in the paper
-        <br>
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; First, Middle, Last</p>
-        <input class="input-box-indent" size="50"/><br><br>
-        <input class="input-box-indent" size="50"/><br><br>
-        <input class="input-box-indent" size="50"/><br><br>
-        <h6 class="add-one-indent"> add one </h6>
-        <h6 class="middle-indent">|</h6>
-        <h6 class="remove-last-indent">remove last</h6><br><br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Year Published</p>
-        <input class="input-box-indent" size="50"/><br><br>
-
-        <p class="adding-color"> &nbsp; &nbsp; &nbsp;Publication Venue</p>
-        <input class="input-box-indent" size="50"/> <br><br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Link to the paper</p>
-        <input class="input-box-indent" size="50"/> <br><br>
-
-        <p><b>3.</b> &nbsp; Fill out the survey to enter metadata about your paper</p>
-        <a class="input-box-indent" href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform" > Paper Browser Tool Metadata Survey</a> &nbsp; &nbsp; &nbsp;
-        <input type="checkbox"/><br><br><br>
-
-  </div>
-
-</body>
-
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
-        <input type="submit" class="submit-button"/><br><br><br>
-
-      </form> -->
 
 
-<!-- </body> -->
 
-<!-- </html> -->
+

@@ -14,7 +14,7 @@ export class AddArticleComponent implements OnInit {
   constructor() {
     // var bibtexParse= require('bibtex-parse-js');
     this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
-    console.log(this.viewConvertedFile);
+    console.log(this.viewConvertedFile); //to view the JSON array in the console
 
    }
 
@@ -25,7 +25,9 @@ export class AddArticleComponent implements OnInit {
     let file = fileList[0];
     let fileReader = new FileReader();
     fileReader.onloadend = (x) => {
-      this.bibtexFileString = fileReader.result;
+      this.bibtexFileString = fileReader.result.toString();
+      // this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
+      // console.log(this.viewConvertedFile); //to view the JSON array in the console
     }
     fileReader.readAsText(file);
   }

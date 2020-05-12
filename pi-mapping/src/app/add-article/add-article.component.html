@@ -24,7 +24,7 @@
       series = {UbiComp ’15}
       } -->
 
-<div ng-app="" class="indent">
+<div class="indent">
 
   <div class="card">
 
@@ -37,7 +37,7 @@
 
 
       <p><b>2.</b> &nbsp; Upload your Bibtex file <br> </p>
-      <input type='file' name="bibFile" accept='Bibtex' multiple (change)='openFile($event)' class="input-box-indent"
+      <input type='file' name="bibFile" accept='Bibtex' multiple (change)='readFile($event.target.files)' class="input-box-indent"
         size="50">
 
       <br><br>
@@ -90,8 +90,8 @@
         <div class="form-group">
           <p for="exampleFormControlFile1" class="bold3">2. Upload a bibtex file: </p>
           <input type="file" class="uploadfile" accept="Bibtex" id="upload" (change)="readFile($event.target.files)">
-          <!-- <pre>{{bibtexFileString}}</pre> -->
-        </div>
+          <pre>{{bibtexFileString}}</pre>
+        </div>-->
         <p>or</p>
         <div class="form-group">
           <p class="bold3">2. Enter data manually</p>

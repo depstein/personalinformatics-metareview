@@ -6,8 +6,7 @@
 </p>
 <ul *ngIf="display">
 	<li><em>ID: </em>{{id}}</li>
-	<li><em>Author keywords: </em><span *ngFor="let keyword of keywords">{{keyword}}, </span></li>
-	<li><em>Our tags: </em><span *ngFor="let tag of tags">{{tag}}, </span></li>
+	<li><em>Our tags: </em><span *ngFor="let tag of tags">{{getName(tag)}}, </span></li>
 </ul>
 <p *ngIf="!display">Please select a paper with a valid ID (go back in your browser)</p>
 

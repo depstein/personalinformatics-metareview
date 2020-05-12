@@ -1,8 +1,7 @@
 <div class="container-fluid">
 
-	<div class="row search-box text-center">
-		<div class="col-3 input-group mb-3">
-
+	<div class="row search-box" id="sticky-search">
+		<div class="col-3">
 		</div>
 		<div class="col-9 input-group mb-3">
 			<input class="form-control" type="text" [(ngModel)]="search" (ngModelChange)="searchFor()"
@@ -15,7 +14,7 @@
 	</div>
 	<div class="row">
 		<div class="col-3">
-			<div class="sidebar">
+			<div class="sidebar" id="sticky-sidebar">
 				<div *ngFor="let code of codes">
 					<div *ngFor="let c of clusters[code]; let i=index">
 						<div *ngIf="i == 0">
@@ -25,20 +24,20 @@
 									</strong></span>
 							</span>
 						</div>
-
-						<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu"
-							[ngClass]="{'hidden': i >= 0 && hidden[code]}">
-							<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()" [name]="c"
-								[id]="c"> <label [for]="c">&nbsp;{{getName(c)}} ({{counts[c]}})</label>
+						<div>
+							<div *ngIf="counts[c] && getName(c)" class="checkbox" id="checkbox-menu"
+								[ngClass]="{'hidden': i >= 0 && hidden[code]}">
+								<input type="checkbox" [(ngModel)]="checked[code][c]" (ngModelChange)="check()"
+									[name]="c" [id]="c"> <label [for]="c">&nbsp;{{getName(c)}} ({{counts[c]}})</label>
+							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-9">
 			<strong id="paper-list">{{paperList.length}} matching papers</strong>
-			<div *ngFor="let code of codes">
+			<div *ngFor="let code of codes" class="search-tags">
 				<span *ngFor="let c of clusters[code]; let i=index">
 					<span *ngIf='counts[c] && getName(c)' class="checkbox"
 						[ngClass]="{'hidden': i > 100 && hidden[code]}">

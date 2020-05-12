@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import * as bibtex from 'bibtex-parse-js';
+import * as bibtex from 'bibtex-parse-js';
 
 @Component({
   selector: 'app-add-article',
@@ -8,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddArticleComponent implements OnInit {
 
-  // bibtex:string= '';
+  bibtexFileString: string = '';
+  viewConvertedFile: any;
 
   constructor() {
     // var bibtexParse= require('bibtex-parse-js');
-    // var sample = bibtexParse.toJSON('@article{sample1,title={sample title}}');
+    this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
+    console.log(this.viewConvertedFile);
+
    }
 
   ngOnInit() {
+  }
+
+  public readFile(fileList: FileList): void {
+    let file = fileList[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = (x) => {
+      this.bibtexFileString = fileReader.result;
+    }
+    fileReader.readAsText(file);
   }
 
 

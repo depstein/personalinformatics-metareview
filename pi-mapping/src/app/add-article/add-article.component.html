@@ -32,7 +32,8 @@
 
         <div class="form-group">
           <p for="exampleFormControlFile1" class="bold3">2. Upload a bibtex file: </p>
-          <input type="file" class="uploadfile" accept="bib" id="upload">
+          <input type="file" class="uploadfile" accept="Bibtex" id="upload" (change)="readFile($event.target.files)">
+          <!-- <pre>{{bibtexFileString}}</pre> -->
         </div>
         <p>or</p>
         <div class="form-group">
@@ -50,12 +51,12 @@
             <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
             <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
             <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
-          </div> 
+          </div>
           <div class="adding-authors">
             <a href="">add one </a>
             <a href="">|</a>
-            <a href="">remove last</a>
-          </div>       
+            <a href=""> remove last</a>
+          </div>
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Year published: </p>

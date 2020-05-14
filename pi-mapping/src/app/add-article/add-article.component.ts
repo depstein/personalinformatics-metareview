@@ -16,6 +16,9 @@ export class AddArticleComponent implements OnInit {
     this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
     console.log(this.viewConvertedFile); //to view the JSON array in the console
 
+    // this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
+    // console.log(this.viewConvertedFile);
+
    }
 
   ngOnInit() {
@@ -26,8 +29,13 @@ export class AddArticleComponent implements OnInit {
     let fileReader = new FileReader();
     fileReader.onloadend = (x) => {
       this.bibtexFileString = fileReader.result.toString();
+
       // this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
       // console.log(this.viewConvertedFile); //to view the JSON array in the console
+
+      console.log(this.bibtexFileString);
+      this.viewConvertedFile= bibtex.toJSON(this.bibtexFileString);
+      console.log(this.viewConvertedFile);
     }
     fileReader.readAsText(file);
   }

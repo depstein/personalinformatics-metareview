@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { authors } from './authors.model';
 import * as bibtex from 'bibtex-parse-js';
 
 @Component({
@@ -6,11 +7,16 @@ import * as bibtex from 'bibtex-parse-js';
   templateUrl: './add-article.component.html',
   styleUrls: ['./add-article.component.css']
 })
+
+
 export class AddArticleComponent implements OnInit {
+
+  authors = new authors()
+  authorsArray = [];
 
   private bibFile = (`
     @Article{ Example,
-    author = {Author(s)},
+    author = "Author(s)",
     title = "Title of Article",
     year = "2020",
     email = "Your Email",
@@ -28,7 +34,7 @@ export class AddArticleComponent implements OnInit {
   private form: {
     email: string;
     title: string;
-    author: {};
+    authors_: any[];
     year: string;
     venue: string;
     link: string;
@@ -40,11 +46,7 @@ export class AddArticleComponent implements OnInit {
     this.form = {
       email: "",
       title: "",
-      author: {
-        name1: "",
-        name2: "",
-        name3: ""
-      },
+      authors_: [],
       year: "",
       venue: "",
       link: "",
@@ -53,6 +55,12 @@ export class AddArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authors = new authors();
+    this.authors.name = "Author";
+
+    this.authorsArray.push(this.authors);
+    console.log(this.authorsArray);
+    this.form.authors_ = this.authorsArray;
 
     this.jsonFile = bibtex.toJSON(this.bibFile);
     console.log(this.jsonFile);
@@ -65,7 +73,7 @@ export class AddArticleComponent implements OnInit {
     this.citationKey = this.jsonFile[0].citationKey;
     this.entryType = this.jsonFile[0].entryType;
 
-    this.form.author = this.entryTags.author;
+    this.form.authors_ = this.entryTags.author;
     this.form.title = this.entryTags.title;
     this.form.year = this.entryTags.year;
     this.form.link = this.entryTags.link;
@@ -77,7 +85,7 @@ export class AddArticleComponent implements OnInit {
     console.log(this.citationKey);
     console.log(this.entryType);
 
-    console.log(this.form.author);
+    console.log(this.form.authors_);
     console.log(this.form.title);
     console.log(this.form.year);
     console.log(this.form.link);
@@ -85,18 +93,32 @@ export class AddArticleComponent implements OnInit {
     console.log(this.form.venue);
     console.log(this.form.survey);
 
+
+  }
+
+  addForm() {
+    this.authors = new authors();
+    this.authors.name = "Author";
+    this.authorsArray.push(this.authors);
+    console.log(this.authorsArray);
+
+  }
+
+  removeForm(i) {
+    this.authorsArray.splice(i);
   }
 
   onResetForm() {
 
+    this.authorsArray = [];
+    this.authors = new authors();
+    this.authors.name = "";
+    this.authorsArray.push(this.authors);
+
     this.form = {
       email: "",
       title: "",
-      author: {
-        name1: "",
-        name2: "",
-        name3: ""
-      },
+      authors_: [],
       year: "",
       venue: "",
       link: "",
@@ -105,8 +127,9 @@ export class AddArticleComponent implements OnInit {
   }
 
   processForm() {
+
     console.group("Form View-Model");
-    console.log("Name:", this.form.author);
+    console.log("Name:", this.form.authors_);
     console.log("Email:", this.form.email);
     console.log("venue:", this.form.venue);
     console.log("link:", this.form.link);
@@ -115,15 +138,25 @@ export class AddArticleComponent implements OnInit {
     console.groupEnd();
   }
 
+  addAuth() {
+    console.log(this.authorsArray);
+
+
+  }
   openFile(event) {
     let input = event.target;
     for (var index = 0; index < input.files.length; index++) {
       let reader = new FileReader();
       reader.onload = () => {
         var text = reader.result;
-        this.entryTags = text;
-        console.log(this.entryTags);
-        console.log(typeof this.entryTags);
+        // this.entryTags = text;
+        console.log(text);
+        let tags = JSON.stringify(text);
+
+        // let tags = bibtex.toJSON(text);
+        console.log(tags);
+        // console.log(this.entryTags);
+        console.log(typeof tags);
 
       }
       reader.readAsText(input.files[index]);

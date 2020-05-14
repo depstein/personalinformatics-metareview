@@ -24,9 +24,13 @@
       series = {UbiComp ’15}
       } -->
 
+
 <div ng-app="" class="indent">
 
+
   <div class="card">
+
+
 
     <form class="container text-indent-inside-card" (submit)="processForm()">
 
@@ -47,15 +51,21 @@
       <p class="adding-color">&nbsp; &nbsp; &nbsp; Title</p>
       <input name="title" [(ngModel)]="form.title" class="input-box-indent" size="50" /><br><br>
       &nbsp; &nbsp; &nbsp; Enter the author names and affiliations below, in the order they appear in the paper
-      <br>
+      <br><br>
       <p class="adding-color">&nbsp; &nbsp; &nbsp; First, Middle, Last</p>
-      <input name="author.name1" [(ngModel)]="form.author.name1" class="input-box-indent" size="50" /><br><br>
-      <input name="author.name2" [(ngModel)]="form.author.name2" class="input-box-indent" size="50" /><br><br>
-      <input name="author.name3" [(ngModel)]="form.author.name3" class="input-box-indent" size="50" /><br><br>
-      <h6 class="add-one-indent"> add one </h6>
-      <h6 class="middle-indent">|</h6>
-      <h6 class="remove-last-indent">remove last</h6><br><br>
 
+      <div *ngFor="let obj of authorsArray; let i=index">
+
+        <input type="text" name="name{{i}}" class="input-box-indent" [(ngModel)]="obj.name" size="50" />
+
+        <span *ngIf="i!=0">
+          <span (click)="removeForm(i)" class="btn">Remove</span>
+        </span>
+      </div>
+
+      <span (click)="addForm()" class="btn">Add</span>
+
+      <br><br>
       <p class="adding-color">&nbsp; &nbsp; &nbsp; Year Published</p>
       <input name="year" [(ngModel)]="form.year" class="input-box-indent" size="50" /><br><br>
 

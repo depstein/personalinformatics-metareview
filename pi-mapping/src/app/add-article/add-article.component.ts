@@ -11,7 +11,13 @@ export class AddArticleComponent implements OnInit {
   bibtexFileString: string = '';
   viewJSONfile: any;
 
-  entryTags: any;
+  //If these fields aren't initialized, the form won't render them at all because there are *ngIf blocks in each of the input fields.
+  entryTags: {} = {
+    title:'',
+    authors:[],
+    booktitle:'',
+    year:''
+  };
 
   title: string;
   authors: any[];

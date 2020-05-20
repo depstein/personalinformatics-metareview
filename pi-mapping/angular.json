@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "pi-mapping"
+  "defaultProject": "pi-mapping",
+  "cli": {
+    "analytics": false
+  }
 }

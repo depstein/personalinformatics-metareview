@@ -1,11 +1,5 @@
-
-#nav-btns{
-    padding-top: 5rem;
-    padding-bottom: 1rem;
-    padding-right: 0%;
-    margin-right: 10px;
-    margin-left: auto;
- 
+#nav-btns {
+    text-align: right;
 }
 
 #nav-btns button{
@@ -28,12 +22,15 @@
     bottom: 0;
     width: 100%;
     text-align: center;
-  }
+}
 
-.top-bar{
-   
-    position: relative; 
-    top: 0; 
-    width: 100%; 
-    
-  }
+#myBtn {
+  position: fixed; /* Fixed/sticky position */
+  border-radius: 5px;
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 50px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  background-color: #ebe8e8; /* Set a background color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+}

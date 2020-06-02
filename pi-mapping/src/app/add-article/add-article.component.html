@@ -1,29 +1,7 @@
-<!-- <html> -->
 
-<!-- <script>
-  src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
-</script> -->
+<!-- Payam new code and Sazeda's initial code below-->
 
-
-<!-- <body> -->
-
-<!-- @inproceedings{10.1145/2750858.2804250,
-      author = {Epstein, Daniel A. and Ping, An and Fogarty, James and Munson, Sean A.},
-      title = {A Lived Informatics Model of Personal Informatics},
-      year = {2015},
-      isbn = {9781450335744},
-      publisher = {Association for Computing Machinery},
-      address = {New York, NY, USA},
-      url = {https://doi.org/10.1145/2750858.2804250},
-      doi = {10.1145/2750858.2804250},
-      booktitle = {Proceedings of the 2015 ACM International Joint Conference on Pervasive and Ubiquitous Computing},
-      pages = {731–742},
-      numpages = {12},
-      keywords = {lived informatics, lapsing, personal informatics, finances, physical activity, self-tracking, location},
-      location = {Osaka, Japan},
-      series = {UbiComp ’15}
-      } -->
-
+<!-- <div class="card">
 <div class="indent">
 
   <div class="card">
@@ -77,9 +55,15 @@
 
   </div>
 
-</div>
+</div> -->
 
-<!-- <div class="card">
+<!-- Simran Ahuja's code below-->
+
+<html>
+  <body>
+
+    <div class="card">
+
       <form class="container text-indent-inside-card">
         <p class="thicker">Metadata regarding your papers</p>
         <div class="form-group">
@@ -89,25 +73,25 @@
 
         <div class="form-group">
           <p for="exampleFormControlFile1" class="bold3">2. Upload a bibtex file: </p>
-          <input type="file" class="uploadfile" accept="Bibtex" id="upload" (change)="readFile($event.target.files)">
-          <pre>{{bibtexFileString}}</pre>
-        </div>-->
+          <input type="file" class="uploadfile" accept="Bibtex" id="upload" (change)="readAndParseFile($event.target.files)">
+          <!-- <pre>{{bibtexFileString}}</pre> -->
+        </div>
         <p>or</p>
         <div class="form-group">
           <p class="bold3">2. Enter data manually</p>
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Title </p>
-          <input type="text" class="inputbox inputbox-large" id="inputtitle">
+          <input *ngIf="entryTags.title" name="title" type="text" class="inputbox inputbox-large" id="inputtitle" [(ngModel)]="entryTags.title">
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Authors </p>
           <p >Enter the author names and affiliations below, in the order they appear in the paper  </p>
           <p >First, Middle, Last</p>
-          <div class="columns">
-            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
-            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
-            <input type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last">
+          <div class="columns" *ngIf="entryTags.authors">
+            <input name="author" type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last" [(ngModel)]="entryTags.authors[0]">
+            <input name="author" type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last" [(ngModel)]="entryTags.authors[1]">
+            <input name="author" type="text" class="inputbox" id="inputname" placeholder="First, Middle, Last" [(ngModel)]="entryTags.authors[2]">
           </div>
           <div class="adding-authors">
             <a href="">add one </a>
@@ -117,15 +101,15 @@
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Year published: </p>
-          <input type="text" class="inputbox" id="inputyear">
+          <input name="year" *ngIf="entryTags.year" type="text" class="inputbox" id="inputyear" [(ngModel)]="entryTags.year">
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Publication Venue: </p>
-          <input type="text" class="inputbox inputbox-large " id="inputvenue">
+          <input name="booktitle" *ngIf="entryTags.booktitle" type="text" class="inputbox inputbox-large " id="inputvenue" [(ngModel)]="entryTags.booktitle">
         </div>
         <div class="form-group">
           <p for="text" class="text-color">Link to the Paper: </p>
-          <input type="text" class="inputbox inputbox-large" id="inputlink">
+          <input name="url" type="text" class="inputbox inputbox-large" id="inputlink" [(ngModel)]="entryTags.url">
         </div>
         <div class="form-group">
           <p for="text" class="bold3">3. Fill out the survey to enter metadata about your paper</p>
@@ -133,65 +117,19 @@
         </div>
 
         <div class="form-check"> <!-- mb-2 mr-sm-2 -->
-<!-- <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
           <p for="inlineFormCheck">Completed</p>
         </div>
 
         <div class="form-group">
           <button type="submit" class="btn btn-primary mb-2 submit-button">Submit</button>
-        </div>-->
+        </div>
+      </form>
+    </div>
 
-
-
-
-<!-- <form class="container text-indent-inside-card">
-
-        <h4><b>Metadata regarding your paper</b></h4>
-
-        <p><b>1.</b> &nbsp; Email address</p>
-        <input type="text" ng-model="email" class="input-box-indent" size="50"><br><br>
-
-        <p><b>2.</b> &nbsp; Upload your Bibtex file <br> </p>
-        <input type="file" accept="jpg" class="input-box-indent"/><br><br>
-
-
-        &nbsp; &nbsp; &nbsp; or <br> <br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Title</p>
-        <input  class="input-box-indent" size="50"/><br><br>
-        &nbsp; &nbsp; &nbsp; Enter the author names and affiliations below, in the order they appear in the paper
-        <br>
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; First, Middle, Last</p>
-        <input class="input-box-indent" size="50"/><br><br>
-        <input class="input-box-indent" size="50"/><br><br>
-        <input class="input-box-indent" size="50"/><br><br>
-        <h6 class="add-one-indent"> add one </h6>
-        <h6 class="middle-indent">|</h6>
-        <h6 class="remove-last-indent">remove last</h6><br><br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Year Published</p>
-        <input class="input-box-indent" size="50"/><br><br>
-
-        <p class="adding-color"> &nbsp; &nbsp; &nbsp;Publication Venue</p>
-        <input class="input-box-indent" size="50"/> <br><br>
-
-        <p class="adding-color">&nbsp; &nbsp; &nbsp; Link to the paper</p>
-        <input class="input-box-indent" size="50"/> <br><br>
-
-        <p><b>3.</b> &nbsp; Fill out the survey to enter metadata about your paper</p>
-        <a class="input-box-indent" href="https://docs.google.com/forms/d/e/1FAIpQLSdPlcdIQmQasEgwtI1ajCwIorMonM-kLjVv2CP-VvpbL_gEIw/viewform" > Paper Browser Tool Metadata Survey</a> &nbsp; &nbsp; &nbsp;
-        <input type="checkbox"/><br><br><br>
-
-  </div>
-
-</body>
-
+  </body>
 </html>
-        <input type="submit" class="submit-button"/><br><br><br>
-
-      </form> -->
 
 
-<!-- </body> -->
 
-<!-- </html> -->
+

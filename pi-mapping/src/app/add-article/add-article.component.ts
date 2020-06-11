@@ -61,6 +61,9 @@ export class AddArticleComponent implements OnInit {
     this.authorsArray.push(this.authors);
     console.log(this.authorsArray);
     this.form.authors_ = this.authorsArray;
+    console.log(this.bibFile);
+    console.log(typeof this.bibFile);
+
 
     this.jsonFile = bibtex.toJSON(this.bibFile);
     console.log(this.jsonFile);
@@ -141,22 +144,21 @@ export class AddArticleComponent implements OnInit {
   addAuth() {
     console.log(this.authorsArray);
 
-
   }
+
   openFile(event) {
     let input = event.target;
     for (var index = 0; index < input.files.length; index++) {
       let reader = new FileReader();
       reader.onload = () => {
         var text = reader.result;
-        // this.entryTags = text;
-        console.log(text);
-        let tags = JSON.stringify(text);
 
-        // let tags = bibtex.toJSON(text);
-        console.log(tags);
-        // console.log(this.entryTags);
-        console.log(typeof tags);
+        console.log(text);
+        console.log(typeof text);
+
+
+
+
 
       }
       reader.readAsText(input.files[index]);

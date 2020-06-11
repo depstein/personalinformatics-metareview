@@ -13,10 +13,10 @@ export class AddArticleComponent implements OnInit {
 
   //If these fields aren't initialized, the form won't render them at all because there are *ngIf blocks in each of the input fields.
   entryTags: {} = {
-    title:'',
-    authors:[],
-    booktitle:'',
-    year:''
+    title: '',
+    authors: [],
+    booktitle: '',
+    year: ''
   };
 
   title: string;
@@ -28,17 +28,12 @@ export class AddArticleComponent implements OnInit {
 
 
   constructor() {
-    // var bibtexParse= require('bibtex-parse-js');
-    this.title= '';
-    this.authors= [];
-    this.year= '';
-    this.booktitle= '';
-    this.url= '';
 
-
-    console.log(typeof(this.viewJSONfile));
-    console.log(this.viewJSONfile); //to view the JSON array in the console
-
+    // this.title = '';
+    // this.authors = [];
+    // this.year = '';
+    // this.booktitle = '';
+    // this.url = '';
 
    }
 
@@ -58,6 +53,7 @@ export class AddArticleComponent implements OnInit {
       // console.log(this.viewJSONfile);
 
       this.entryTags = this.viewJSONfile[0].entryTags;
+      // this.displayAll();
       // console.log(this.entryTags);
       // this.title = this.entryTags.title;
       // this.authors = this.entryTags.authors[0];
@@ -67,6 +63,16 @@ export class AddArticleComponent implements OnInit {
     }
 
     fileReader.readAsText(file);
+    this.displayAll();
+  }
+
+  public displayAll(): void {
+    console.log("Title: " + this.title);
+    console.log("Author(s): " + this.authors[0]);
+    console.log("Year: " + this.year);
+    console.log("Booktitle: " + this.booktitle);
+    console.log("URL: " + this.url);
+
   }
 
 

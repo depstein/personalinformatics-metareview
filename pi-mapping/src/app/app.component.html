@@ -1,24 +1,26 @@
-<div class="container-fluid  top-bar">
-	<div style="text-align:left">
-		<nav class="nav">
-			<a class="nav-link" href="#">  
-				
-			<img src="../assets/images/LogoBlue.png"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+	<nav class="nav row">
+		<div class="col-md-6 col-xs-12">
+			<a class="nav-link" href="#">
+				<img src="../assets/images/LogoBlue.png" />
 			</a>
-			<div id="nav-btns">
+		</div>
+
+		<div id="nav-btns" class="col-md-6 col-xs-12">
 
 			<button routerLink="/" class="btn btn-sm btn-light" type="button">Home</button>
 			<button routerLink="/about" class="btn btn-sm btn-light" type="button">About Us</button>
 			<button routerLink="/article" class="btn btn-sm btn-light" type="button">Add Articles</button>
 
 		</div>
-	  </nav>
-	
-	</div>
-	
+	</nav>
+
 	<router-outlet></router-outlet>
-	
+	<button class="btn btn-sm btn-light" *ngIf="showScroll" (click)="goToTop()" id="myBtn" title="Go to top">
+		<span class="material-icons">keyboard_arrow_up</span>
+	</button>
 </div>
 <footer class="footer">
-		Copyright &copy; 2020
-	</footer>
+	Copyright &copy; 2020 Paper Browser
+</footer>

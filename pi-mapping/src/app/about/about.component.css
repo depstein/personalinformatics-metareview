@@ -3,21 +3,41 @@
   align-content: center;
   float: justify;;
   color: steelblue;
+  color:black;
+}
+h5.larger-title{
+ font-weight: 500;
+ font-size: 15px;
+}
+h6.larger-subtitle{
+  font-size: 12px;
 }
 
 #email {
   color: steelblue;
 }
 
+a:hover{
+  color: #808080;
+      text-decoration: none;
+}
+
 hr {
-  width: 100%;
+  width: 97%;
   border-width: 3px;
 }
 
 .card {
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 19px;
+  margin-right: 19px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
 }
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
 
 .header{
     font-size:40px;
@@ -35,3 +55,9 @@ hr {
     font-weight:bold;
     text-shadow: 1px 1px #7b8d99; 
 }  
+
+.card{
+  width: 97%;
+
+}
+

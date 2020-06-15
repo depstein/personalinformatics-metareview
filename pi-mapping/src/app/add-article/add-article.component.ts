@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { authors } from './authors.model';
 import * as bibtex from 'bibtex-parse-js';
 
 @Component({
@@ -8,33 +7,19 @@ import * as bibtex from 'bibtex-parse-js';
   styleUrls: ['./add-article.component.css']
 })
 
-
 export class AddArticleComponent implements OnInit {
 
-  authors = new authors()
-  authorsArray = [];
+  bibtexFileString: string;
+  viewJSONfile: any;
+  entryTags: any;
 
-  private bibFile = (`
-    @Article{ Example,
-    author = "Author(s)",
-    title = "Title of Article",
-    year = "2020",
-    email = "Your Email",
-    venue = "Publication Venue",
-    link = "Enter the url" 
-}
-`);
+  email: string;
+  author: string;
+  authors: string;
 
-  private jsonFile: JSON;
-  private jsonString: string;
-  private entryTags: any;
-  private citationKey: string;
-  private entryType: string;
-
-  private form: {
-    email: string;
+  form: {
     title: string;
-    authors_: any[];
+    authors: any[];
     year: string;
     venue: string;
     link: string;
@@ -43,10 +28,12 @@ export class AddArticleComponent implements OnInit {
 
   constructor() {
 
+    this.email = "";
+    this.author = "";
+
     this.form = {
-      email: "",
       title: "",
-      authors_: [],
+      authors: [],
       year: "",
       venue: "",
       link: "",
@@ -55,115 +42,80 @@ export class AddArticleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authors = new authors();
-    this.authors.name = "Author";
 
-    this.authorsArray.push(this.authors);
-    console.log(this.authorsArray);
-    this.form.authors_ = this.authorsArray;
-    console.log(this.bibFile);
-    console.log(typeof this.bibFile);
-
-
-    this.jsonFile = bibtex.toJSON(this.bibFile);
-    console.log(this.jsonFile);
-    this.jsonString = JSON.stringify(this.jsonFile[0]);
-    console.log(this.jsonString);
-    console.log(JSON.parse(this.jsonString));
-
-
-    this.entryTags = this.jsonFile[0].entryTags;
-    this.citationKey = this.jsonFile[0].citationKey;
-    this.entryType = this.jsonFile[0].entryType;
-
-    this.form.authors_ = this.entryTags.author;
-    this.form.title = this.entryTags.title;
-    this.form.year = this.entryTags.year;
-    this.form.link = this.entryTags.link;
-    this.form.email = this.entryTags.email;
-    this.form.venue = this.entryTags.venue;
-
-
-    console.log(this.entryTags);
-    console.log(this.citationKey);
-    console.log(this.entryType);
-
-    console.log(this.form.authors_);
-    console.log(this.form.title);
-    console.log(this.form.year);
-    console.log(this.form.link);
-    console.log(this.form.email);
-    console.log(this.form.venue);
-    console.log(this.form.survey);
-
+    this.form.authors.push(this.author);
 
   }
 
   addForm() {
-    this.authors = new authors();
-    this.authors.name = "Author";
-    this.authorsArray.push(this.authors);
-    console.log(this.authorsArray);
+
+    this.author = "";
+    this.form.authors.push(this.author);
+    console.log(this.form.authors);
 
   }
 
+
   removeForm(i) {
-    this.authorsArray.splice(i);
+    this.form.authors.splice(i);
   }
 
   onResetForm() {
 
-    this.authorsArray = [];
-    this.authors = new authors();
-    this.authors.name = "";
-    this.authorsArray.push(this.authors);
+    this.email = "";
+    this.author = "";
 
     this.form = {
-      email: "",
       title: "",
-      authors_: [],
+      authors: [],
       year: "",
       venue: "",
       link: "",
       survey: false
     };
+
+    this.form.authors.push(this.author);
+
   }
 
   processForm() {
 
-    console.group("Form View-Model");
-    console.log("Name:", this.form.authors_);
-    console.log("Email:", this.form.email);
-    console.log("venue:", this.form.venue);
-    console.log("link:", this.form.link);
-    console.log("year:", this.form.year);
-    console.log("survey:", this.form.survey);
-    console.groupEnd();
+    console.log("Email: ", this.email);
+    console.log("Authors: ", this.form.authors);
+    console.log("Title: ", this.form.title);
+    console.log("venue: ", this.form.venue);
+    console.log("link: ", this.form.link);
+    console.log("year: ", this.form.year);
+    console.log("survey: ", this.form.survey);
   }
 
-  addAuth() {
-    console.log(this.authorsArray);
 
+  public readAndParseFile(fileList: FileList): void {
+
+    let file = fileList[0];
+    let fileReader = new FileReader();
+
+    fileReader.onloadend = () => {
+
+      this.bibtexFileString = fileReader.result.toString();
+
+      this.viewJSONfile = bibtex.toJSON(this.bibtexFileString);
+
+      this.entryTags = this.viewJSONfile[0].entryTags;
+
+      console.log(this.entryTags);
+      this.form.title = this.entryTags.title || this.entryTags.TITLE;
+      this.authors = this.entryTags.author || this.entryTags.AUTHOR;
+      this.splitAuthors();
+      this.form.year = this.entryTags.year || this.entryTags.YEAR;
+      this.form.venue = this.entryTags.publisher || this.entryTags.venue || this.entryTags.VENUE;
+      this.form.link = this.entryTags.link || this.entryTags.url || this.entryTags.URL;
+    }
+    fileReader.readAsText(file);
   }
 
-  openFile(event) {
-    let input = event.target;
-    for (var index = 0; index < input.files.length; index++) {
-      let reader = new FileReader();
-      reader.onload = () => {
-        var text = reader.result;
-
-        console.log(text);
-        console.log(typeof text);
-
-
-
-
-
-      }
-      reader.readAsText(input.files[index]);
-    };
+  splitAuthors() {
+    this.form.authors = this.authors.split("and");
   }
-
 
 }

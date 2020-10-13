@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PapersService } from '../papers.service';
 import { RenameService } from '../rename.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-paper',
@@ -9,7 +10,7 @@ import { RenameService } from '../rename.service';
 })
 export class PaperComponent implements OnInit {
 	@Input() id:string;
-  display:boolean = false;
+  showId:boolean = environment.production;
 	author:string;
 	link:string;
 	title:string;
@@ -24,7 +25,6 @@ export class PaperComponent implements OnInit {
   ngOnInit() {
   	let paper = this.papers.getPaper(this.id);
     if(paper) {
-      this.display = true;
       this.author = paper.author;
       if(this.author.endsWith('.')) {
         this.author = this.author.slice(0, -1);
@@ -38,8 +38,6 @@ export class PaperComponent implements OnInit {
       this.tags = paper.tags;
       this.venue = paper.venue;
       this.year = paper.year;
-    } else {
-      this.display = false;
     }
   }
 

@@ -395,6 +395,25 @@
         ]
     },
     {
+        "title": "artifact_kind",
+        "clusters": [
+            "artifact_app",
+            "artifact_visualization",
+            "artifact_website",
+            "artifact_collection",
+            "artifact_hardware",
+            "artifact_processing",
+            "artifact_mockup",
+            "artifact_desktop",
+            "artifact_wearable",
+            "artifact_storage",
+            "artifact_other",
+            "artifact_tangible",
+            "artifact_toolkit",
+            "artifact_none"
+        ]
+    },
+    {
         "title": "recruitment",
         "clusters": [
             "unclear",
@@ -420,25 +439,6 @@
     {
         "title": "study_duration",
         "clusters": []
-    },
-    {
-        "title": "artifact_kind",
-        "clusters": [
-            "artifact_app",
-            "artifact_visualization",
-            "artifact_website",
-            "artifact_collection",
-            "artifact_hardware",
-            "artifact_processing",
-            "artifact_mockup",
-            "artifact_desktop",
-            "artifact_wearable",
-            "artifact_storage",
-            "artifact_other",
-            "artifact_tangible",
-            "artifact_toolkit",
-            "artifact_none"
-        ]
     },
     {
         "title": "involved",

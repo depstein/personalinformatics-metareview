@@ -1,40 +1,40 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import papers from "../assets/all_papers.json";
-import papers2019 from "../assets/all_papers_2019.json";
+import allPapers from "../assets/all_papers.json";
+import papers2020 from "../assets/all_papers_2020.json";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PapersService {
-  papers:any
 
   constructor() {
-    this.papers = papers;
-    if(environment.showOldData) {
-      this.papers = papers2019;
-    }
   }
 
-  getAllPapers() {
-  	return Object.keys(this.papers).sort((a, b) => {
+  getAllPapers(showNewArticles=true) {
+    let papers = showNewArticles ? allPapers : papers2020;
+
+  	return Object.keys(papers).sort((a, b) => {
       //Sort the papers by year
-      return this.papers[a]['year'] - this.papers[b]['year'];
+      return papers[a]['year'] - papers[b]['year'];
     });
   }
 
   getPaper(id:string) {
-  	if(id in this.papers) {
-  		return this.papers[id];
+    //allPapers is intended to be a superset of papers2020, this will break if that is ever violated
+  	if(id in allPapers) {
+  		return allPapers[id];
   	}
   	return null;
   }
 
-  filterBy(text:string) {
-    let paperList = Object.keys(this.papers);
+  filterBy(text:string, showNewArticles=true) {
+    let papers = showNewArticles ? allPapers : papers2020;
+
+    let paperList = Object.keys(papers);
     let ret = [];
     paperList.forEach(p => {
-      let values = Object.values(this.papers[p]);
+      let values = Object.values(papers[p]);
       if(values.some(v => (v.toString() as string).toLowerCase().includes(text.toLowerCase()))) {
         ret.push(p);
       }

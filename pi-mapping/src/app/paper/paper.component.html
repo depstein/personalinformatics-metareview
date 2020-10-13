@@ -1,12 +1,14 @@
 <div class="card">
 	<div class="card-body">
-		<p *ngIf="display">
-			{{author}}. <a [href]="link" target="_new">{{title}}</a>. {{venue}} ({{year}}).
-		</p>
-		<ul *ngIf="display">
-			<li><em>ID: </em>{{id}}</li>
-			<li><em>Our tags: </em><span *ngFor="let tag of tags; let last=last"><span *ngIf="getName(tag)">{{getName(tag)}}</span><span *ngIf="getName(tag) && !last">, </span></span></li>
-		</ul>
-		<p *ngIf="!display">Please select a paper with a valid ID (go back in your browser)</p>
+		<div class="row">
+			<div class="col-11">
+				{{author}}. <a [href]="link" target="_new">{{title}}</a>. {{venue}} ({{year}}).
+			</div>
+			<div class="col-1">
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSd-MDnndPDQhkZwufj2UabubLmV71za5GWt5ay5ZfwLT9dbPA/viewform?entry.1600498993={{id}}" target="_new">Correction?</a>
+			</div>
+		</div>
+		<div *ngIf="!showId"><em>ID: </em>{{id}}</div>
+		<div><em>Tags: </em><span *ngFor="let tag of tags; let last=last"><label class="badge badge-secondary" [for]="tag" *ngIf="getName(tag)">{{getName(tag)}}</label><span *ngIf="getName(tag) && !last">, </span></span></div>
 	</div>
 </div>

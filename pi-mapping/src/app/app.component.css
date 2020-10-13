@@ -12,8 +12,8 @@
     border-radius: 5px;
 }
 
-.nav-link img{
-    width: 25rem;
+.nav-link {
+  width: 100%;
 }
 
 .footer {

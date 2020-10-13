@@ -238,7 +238,7 @@
             "autism",
             "finances",
             "general_tracking",
-            "heart rate",
+            "heartrate",
             "productivity",
             "travel activities",
             "brain stimulation",
@@ -259,7 +259,6 @@
             "driving habits",
             "arthritis",
             "multiple sclerosis",
-            "heartrate",
             "classroom",
             "sustainability",
             "pill_consumption",
@@ -350,6 +349,15 @@
         ]
     },
     {
+        "title": "privacy_ethics_depth",
+        "clusters": [
+            "privacy_ethics_depth_none",
+            "privacy_ethics_depth_results",
+            "privacy_ethics_depth_design",
+            "privacy_ethics_depth_passing"
+        ]
+    },
+    {
         "title": "contribution",
         "clusters": [
             "empirical",
@@ -384,6 +392,25 @@
             "n-of-1",
             "ethnography",
             "none_study"
+        ]
+    },
+    {
+        "title": "artifact_kind",
+        "clusters": [
+            "artifact_app",
+            "artifact_visualization",
+            "artifact_website",
+            "artifact_collection",
+            "artifact_hardware",
+            "artifact_processing",
+            "artifact_mockup",
+            "artifact_desktop",
+            "artifact_wearable",
+            "artifact_storage",
+            "artifact_other",
+            "artifact_tangible",
+            "artifact_toolkit",
+            "artifact_none"
         ]
     },
     {
@@ -536,6 +563,7 @@
             "rhythmanalysis",
             "health belief model",
             "bandura",
+            "social cognitive, bandura",
             "wellness motivation theory",
             "perception theory",
             "behavioral self-management",
@@ -544,6 +572,15 @@
             "mace_ward_art",
             "kinesthetic empathy",
             "russells circuplex model"
+        ]
+    },
+    {
+        "title": "theory_depth",
+        "clusters": [
+            "theory_depth_none",
+            "theory_depth_design",
+            "theory_depth_passing",
+            "theory_depth_results"
         ]
     }
 ]

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import clusterMap from "../../assets/cluster_map.json";
-import clusterMap2019 from "../../assets/cluster_map_2019.json";
 import { PapersService } from '../papers.service';
 import { TagsService } from '../tags.service';
 import { RenameService } from '../rename.service';
@@ -21,12 +20,11 @@ export class BrowserComponent implements OnInit {
   hidden:{} = {};
   yearRadio:boolean = true;
   clusterMap:any;
+  showNewArticles:boolean = true;
+
 
   constructor(private papers:PapersService, private tags:TagsService, private rename:RenameService) {
     this.clusterMap = clusterMap;
-    if(environment.showOldData) {
-      this.clusterMap = clusterMap2019;
-    }
   }
 
   ngOnInit() {
@@ -46,7 +44,7 @@ export class BrowserComponent implements OnInit {
   		});
   		this.clusters[c].sort((a, b) => this.counts[b] - this.counts[a]);
   	});
-  	this.paperList = this.papers.getAllPapers();
+  	this.paperList = this.papers.getAllPapers(this.showNewArticles);
   }
 
   clear() {
@@ -66,8 +64,7 @@ export class BrowserComponent implements OnInit {
   }
 
   checkBoxes():string[] {
-  	let papersSoFar = this.papers.getAllPapers();
-  	
+  	let papersSoFar = this.papers.getAllPapers(this.showNewArticles);
   	this.codes.forEach(code => {
   		let papersForCode = [];
   		Object.keys(this.checked[code]).forEach(k => {
@@ -84,11 +81,11 @@ export class BrowserComponent implements OnInit {
   }
 
   check() {
-	this.paperList = this.checkBoxes();
+	  this.paperList = this.checkBoxes();
   }
 
   searchFor() {
-  	let searchList = this.papers.filterBy(this.search);
+  	let searchList = this.papers.filterBy(this.search, this.showNewArticles);
   	this.paperList = this.checkBoxes().filter(p => searchList.includes(p));
   }
 

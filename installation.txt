@@ -1,7 +1,0 @@
-To preserve anonymity, we are providing the source of the webpage we have built to examine the publications we coded. We will create a public URL prior to publication.
-
-Running the webpage locally requires running a local HTTP server in the webpage folder.
-
-If you have python installed (https://www.python.org/downloads/), this can be achieved by running "python3 -m http.server" or "python -m SimpleHTTPServer" on the command line/terminal from the webpage folder.
-
-This will start the webpage running locally on port 8000. Open it in your browser by navigating to: http://localhost:8000

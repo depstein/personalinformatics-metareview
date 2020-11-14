@@ -15,6 +15,8 @@ export class BrowserComponent implements OnInit {
 	clusters:{} = {};
 	checked:{} = {};
 	counts:{} = {};
+  codeOrder:string[] = [];
+  filterCodes:string[] = [];
 	paperList:string[] = [];
 	search:string;
   hidden:{} = {};
@@ -43,7 +45,11 @@ export class BrowserComponent implements OnInit {
   			}
   		});
   		this.clusters[c].sort((a, b) => this.counts[b] - this.counts[a]);
+      this.clusters[c].forEach(k => {
+        this.codeOrder.push(k);
+      });
   	});
+
   	this.paperList = this.papers.getAllPapers(this.showNewArticles);
   }
 
@@ -65,17 +71,24 @@ export class BrowserComponent implements OnInit {
 
   checkBoxes():string[] {
   	let papersSoFar = this.papers.getAllPapers(this.showNewArticles);
-  	this.codes.forEach(code => {
-  		let papersForCode = [];
-  		Object.keys(this.checked[code]).forEach(k => {
-  			if(this.checked[code][k]) {
-  				papersForCode = papersForCode.concat(this.tags.getIdsForTag(k));
-  			}
-  		});
-  		if(papersForCode.length > 0) {
-  			papersSoFar = papersSoFar.filter(p => papersForCode.includes(p));
-  		}
-  	});
+    let allChecked = [];
+    this.codes.forEach(code => {
+      Object.keys(this.checked[code]).forEach(k => {
+        if(this.checked[code][k]) {
+         allChecked.push(k);
+        }
+      });
+    });
+    allChecked.forEach(k => {
+      papersSoFar = papersSoFar.filter(p => this.tags.getIdsForTag(k).includes(p));
+    });
+    //Order the codes by type & frequency
+    this.filterCodes = [];
+    this.codeOrder.forEach(t => {
+      if(allChecked.includes(t)) {
+        this.filterCodes.push(t);
+      }
+    });
 
   	return papersSoFar;
   }

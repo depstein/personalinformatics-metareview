@@ -7,10 +7,25 @@
 }
 
 .card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+	box-shadow: 0 1px 8px 0 rgba(0,0,0,0.7);
+	color: black;
+	border-radius: 5px;
 }
 
-label {
-	margin: 0px;
+.badge {
+	margin: 0px 5px;
 	font-size: 12px;
+	cursor: pointer;
+}
+
+.badge:hover {
+	box-shadow: 0 1px 8px 0 rgba(0,0,0,0.7);
+	border-radius: 5px;
+}
+
+.correction {
+	margin: 10px 0px 0px 0px;
+	font-size: 14px;
+	background-color: steelblue;
+	color: white;
 }

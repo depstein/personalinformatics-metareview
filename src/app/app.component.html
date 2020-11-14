@@ -1,18 +1,21 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="container-fluid">
 	<nav class="nav row">
-		<div class="col-md-3 col-xs-12">
+		<div class="d-none d-lg-block col-3">
 			<a href="#">
-				<img class="nav-link" src="assets/images/LogoBlue.png" />
+				<img class="nav-link" src="assets/images/browser_logo.png" />
 			</a>
 		</div>
-
-		<div id="nav-btns" class="col-md-9 col-xs-12">
-
-			<button routerLink="/" class="btn btn-sm btn-light" type="button">Home</button>
-			<button routerLink="/about" class="btn btn-sm btn-light" type="button">About</button>
-			<button routerLink="/article" class="btn btn-sm btn-light" type="button">Add an Article</button>
-
+		<div class="d-none d-lg-block col-3 col-xl-6">
+		</div>
+		<div class="col-xl-1 col-lg-2 col-4">
+			<button routerLink="/" class="nav-btn btn btn-block" type="button">Home</button>
+		</div>
+		<div class="col-xl-1 col-lg-2 col-4">
+			<button routerLink="/about" class="nav-btn btn btn-block" type="button">About</button>
+		</div>
+		<div class="col-xl-1 col-lg-2 col-4">
+			<button routerLink="/article" class="nav-btn btn btn-block text-truncate" type="button">Add an Article</button>
 		</div>
 	</nav>
 
@@ -22,5 +25,5 @@
 	</button>
 </div>
 <footer class="footer">
-	Copyright &copy; 2020 Paper Browser
+	Copyright &copy; {{year}} Paper Browser
 </footer>

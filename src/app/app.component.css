@@ -1,19 +1,19 @@
-#nav-btns {
-    text-align: right;   
+.nav-btn {
+  margin-top:10px;
+  margin-bottom:10px;
+  color: #333;
+  background-color: #E8E8E8;
 }
 
-#nav-btns button{
-    margin-right: 40px;
-    margin-top: 20px;
-    margin-bottom: 60px;
-    float: center;
-    background-color:#ebe8e8;
-    min-width: 100px;
-    border-radius: 5px;
+.nav-btn:hover {
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.7);
 }
 
 .nav-link {
   width: 100%;
+  padding: 0px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .footer {

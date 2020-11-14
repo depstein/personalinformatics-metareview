@@ -10,12 +10,13 @@ import { environment } from '../../environments/environment';
 })
 export class PaperComponent implements OnInit {
 	@Input() id:string;
+  @Input() codeOrder:string[];
   showId:boolean = environment.production;
 	author:string;
 	link:string;
 	title:string;
 	doi:string;
-	tags:string[];
+	tags:string[] = [];
 	venue:string;
 	year:string;
 
@@ -35,7 +36,12 @@ export class PaperComponent implements OnInit {
         this.title = this.title.slice(0, -1);
       }
       this.doi = paper.doi;
-      this.tags = paper.tags;
+      //order the codes by type & frequency
+      this.codeOrder.forEach(t => {
+        if(paper.tags.includes(t)) {
+          this.tags.push(t);
+        }
+      });
       this.venue = paper.venue;
       this.year = paper.year;
     }

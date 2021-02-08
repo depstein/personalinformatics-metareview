@@ -11749,10 +11749,8 @@
         "tags": [
             "artifact",
             "empirical",
-            "diabetes",
             "mental",
             "chronic",
-            "chronic pain",
             "yes",
             "both",
             "collection",
@@ -13966,7 +13964,7 @@
     "https://doi.org/10.1145/3392882": {
         "id": "https://doi.org/10.1145/3392882",
         "link": "https://doi.org/10.1145/3392882",
-        "author": "LAURA R. PINA, SANG-WHA SIEN, CLARISSA SONG, TERESA M. WARD, JAMES FOGARTY, SEAN A. MUNSON, JULIE A. KIENTZ",
+        "author": "Laura R. Pina, Sang-What Sien, Clarissa Song, Teresa M. Ward, James Fogarty, Sean A. Munson, Julie A. Kientz",
         "title": "DreamCatcher: Exploring How Parents and School-Age Children can Track and Review Sleep Information Together",
         "year": "2020",
         "venue": "CSCW",
